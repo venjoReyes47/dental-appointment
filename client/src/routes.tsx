@@ -7,6 +7,7 @@ import RegisterServices from './components/dentist/RegisterServices';
 import DentistAppointment from './components/dentist/DentistAppointment';
 import Schedule from './components/patient/Schedule';
 import type { RoleId } from './types';
+import { Navigate } from 'react-router-dom';
 
 export interface AppRoute {
   path: string;
@@ -22,6 +23,8 @@ const routes: AppRoute[] = [
   { path: '/dentists', element: <RegisterDentist />, protected: true, requiredRole: 1 },
   { path: '/services', element: <RegisterServices />, protected: true, requiredRole: 1 },
   { path: '/schedule', element: <Schedule />, protected: true, requiredRole: 2 },
-  { path: '/appointments', element: <DentistAppointment />, protected: true }
+  { path: '/appointments', element: <DentistAppointment />, protected: true },
+  { path: '*', element: <Navigate to="/login" replace />, protected: true }
+  
 ];
 export default routes;
