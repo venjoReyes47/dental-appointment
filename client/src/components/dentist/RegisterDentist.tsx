@@ -125,7 +125,7 @@ const RegisterDentist = () => {
         <div
             className={`modal fade ${showDeleteModal ? 'show' : ''}`}
             style={{ display: showDeleteModal ? 'block' : 'none' }}
-            tabIndex="-1"
+            tabIndex={-1}
             role="dialog"
             aria-labelledby="deleteModalLabel"
         >
@@ -374,7 +374,7 @@ const RegisterDentist = () => {
                                         ))}
                                         {dentists.length === 0 && (
                                             <tr>
-                                                <td colSpan="4" className="text-center text-muted py-4">
+                                                <td colSpan={4} className="text-center text-muted py-4">
                                                     No dentists registered yet
                                                 </td>
                                             </tr>

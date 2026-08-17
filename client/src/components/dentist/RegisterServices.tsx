@@ -51,16 +51,18 @@ const RegisterServices = () => {
         }
     };
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-    };
+    const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+
+    setFormData(prev => ({
+        ...prev,
+        [name]: value
+    }));
+};
 
     const handleEditChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
+
         setEditForm(prev => ({
             ...prev,
             [name]: value
@@ -115,7 +117,7 @@ const RegisterServices = () => {
         <div
             className={`modal fade ${showDeleteModal ? 'show' : ''}`}
             style={{ display: showDeleteModal ? 'block' : 'none' }}
-            tabIndex="-1"
+            tabIndex={-1}
             role="dialog"
             aria-labelledby="deleteModalLabel"
         >
@@ -177,14 +179,14 @@ const RegisterServices = () => {
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-4">
                                     <textarea
-                                        className="form-control form-control-lg rounded-3 border-0 bg-light"
-                                        placeholder="Service Description"
-                                        name="description"
-                                        value={formData.description}
-                                        onChange={handleChange}
-                                        rows="4"
-                                        required
-                                    />
+    className="form-control form-control-lg rounded-3 border-0 bg-light"
+    placeholder="Service Description"
+    name="description"
+    value={formData.description}
+    onChange={handleChange}
+    rows={4}
+    required
+/>
                                 </div>
                                 <button
                                     type="submit"
@@ -228,7 +230,7 @@ const RegisterServices = () => {
                                                             name="description"
                                                             defaultValue={service.Description}
                                                             onChange={handleEditChange}
-                                                            rows="2"
+                                                            // rows={2}
                                                         />
                                                     ) : (
                                                         service.Description
@@ -282,7 +284,7 @@ const RegisterServices = () => {
                                         ))}
                                         {services.length === 0 && (
                                             <tr>
-                                                <td colSpan="2" className="text-center text-muted py-4">
+                                                <td colSpan={2} className="text-center text-muted py-4">
                                                     No services registered yet
                                                 </td>
                                             </tr>
