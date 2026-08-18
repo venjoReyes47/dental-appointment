@@ -79,9 +79,6 @@ For local use, `.env` should contain:
 VITE_API_URL=http://localhost:8080
 ```
 
-## Production
-See [DEPLOYMENT.md](./DEPLOYMENT.md).
-
 ## Security notes
 - Never put database or JWT secrets in the client environment. Only `VITE_API_URL` belongs in the client.
 - Keep RDS private and allow port 3306 only from the API service/security group.
